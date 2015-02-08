@@ -1,0 +1,13 @@
+<h1> <%= @beverage.bev_type %> </h1>
+
+<p> This Beverage is a <%= @beverage.roast %> which is <%= @beverage.brew %> brew and I have <%= @beverage.quantity %> </p>
+
+<p>
+  <strong>Combo name:</strong><!-- I added this to show the combo info-->
+  <%= @beverage.combo.cname %><!-- I added this to show the combo name-->
+</p>
+
+<!-- Link to get back to list of beverages -->
+<%= link_to 'Back to Beverages list!', beverages_path %>
+
+<%= link_to 'Delete this beverage', :beverage, method: :delete, data: {confirm: 'Are you sure you want to delete beverage?'} %>

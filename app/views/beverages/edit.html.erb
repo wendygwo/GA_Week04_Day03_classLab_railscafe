@@ -1,0 +1,19 @@
+<h1> Edit a Beverage!</h1>
+<!-- You know to use @beverage in the form, because it's what we called it in the new method we wrote, def new...end in the beverages_controller.rb -->
+
+<!-- The |f| is the form variable that we choose. This starts our loop -->
+<%= form_for @beverage do |f| %> 
+	<!-- You can check the schema.rb to figure out what we want to access in the form -->
+	Type: <%= f.text_field :bev_type %> <!-- The first 'Type:' is going to show up in our HTML form as a label. The input type for this field (text box) is .text_field because people can input type in a text box. We tie it to our table column of the type name through the ":type" -->
+	Price: <%= f.text_field :price %>
+	Quantity: <%= f.text_field :quantity %>
+	Roast: <%= f.text_field :roast %>
+	Brew: <%= f.text_field :brew %>
+	Expiration Date: <%= f.date_field :expiration_date %>
+	Combo name: <%= f.collection_select :combo_id, Combo.all, :id, :cname %>
+
+	<%= f.submit "Edit this beverage!" %> <!-- creates a button -->
+
+	<% end %><!--  This ends our loop. You don't need an equal sign for this tag at the end -->
+
+	<%= link_to "Back to the Beverages list", beverages_path %>

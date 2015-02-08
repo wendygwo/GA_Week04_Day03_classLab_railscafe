@@ -1,0 +1,38 @@
+<h1>Beverage List</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Roast</th>
+      <th>Expiration date</th>
+      <th>Brew</th>
+      <th>Combo name</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beverages.each do |beverage| %>
+      <tr>
+        <td><%= beverage.bev_type %></td>
+        <td><%= beverage.price %></td>
+        <td><%= beverage.quantity %></td>
+        <td><%= beverage.roast %></td>
+        <td><%= beverage.expiration_date %></td>
+        <td><%= beverage.brew %></td>
+        <td><%= beverage.combo.cname%></td>
+        <td><%=link_to 'Edit this beverage', edit_beverage_path(beverage) %></td>
+        <td><%=link_to 'Delete this beverage', beverage, method: :delete, data: {confirm: 'Are you sure you want to delete beverage?'} %>
+        <td><%=link_to 'Delete this beverage2', beverage_path(beverage), method: :delete, data: {confirm: 'Are you sure you want to delete beverage?'} %></td>
+        <!-- tells you to take this beverage object, use the delete method on it. This is a has. These are parameters that we're passing to the link_to function -->
+
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add a new beverage', beverages_new_path %>
